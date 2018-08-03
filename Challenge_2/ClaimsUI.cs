@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Challenge_2
 {
-    class ProgramUI
+    public class ClaimsUI
     {
         private ClaimsQueueRepo _claimsQueueRepo = new ClaimsQueueRepo();
 
@@ -28,7 +28,23 @@ namespace Challenge_2
                         ViewItemsInQueue();
                         break;
                     case 2:
-                        
+                        while (true)
+                        {
+                            _claimsQueueRepo.PrintList(_claimsQueueRepo.GetQueue());
+                            Console.WriteLine("Do you want to Remove top Claim from Queue? (y/n)");
+                            string theAnswer = Console.ReadLine();
+                            if (theAnswer == "y")
+                            {
+                                _claimsQueueRepo.RemoveItemFromQueue();
+                                break;
+                            }
+                            else if (theAnswer == "n")
+                            {
+                                break;
+                            }
+
+
+                        }
                         break;
                     case 3:
                         while (true)
@@ -45,15 +61,15 @@ namespace Challenge_2
                             Console.WriteLine("What is the Damage Cost of the Claim?");
                             decimal damages = decimal.Parse(Console.ReadLine());
 
-                            Console.WriteLine("What is the date of the Incident");
+                            Console.WriteLine("What is the date of the Incident? (YYYY, MM, DD)");
                             string iDateOfIncident = Console.ReadLine();
                             DateTime dateOfIncident = Convert.ToDateTime(iDateOfIncident);
 
-                            Console.WriteLine("What is the date the Claim was made?");
+                            Console.WriteLine("What is the date the Claim was made? (YYYY, MM, DD)");
                             string iDateOfClaim = Console.ReadLine();
                             DateTime dateOfClaim = Convert.ToDateTime(iDateOfClaim);
 
-                            Claims claim = new Claims();
+                            Claims claim = new Claims(claimID, type, description, damages, dateOfIncident, dateOfClaim);
                             _claimsQueueRepo.ViewItemsInQueue(claim);
 
                             Console.WriteLine("Do you want to add something else? y/n");
@@ -95,10 +111,10 @@ namespace Challenge_2
 
         private void CreateSeedList()
         {
-            Claims Q1 = new Claims(45, "Car", "Fender Bender", 250.00m, new DateTime(05-10-2016), new DateTime(05-18-2016));
-            Claims Q2 = new Claims(32, "House", "Domestic Dispute", 5000.00m, new DateTime(04-15-2016), new DateTime(05-18-2016));
-            Claims Q3 = new Claims(68, "Theft", "Purse-Dog Taken", 600.00m, new DateTime(09-08-2016), new DateTime(09-09-2016));
-            Claims Q4 = new Claims(122, "RV", "Camping Accident", 12542.97m, new DateTime(12-25-2016), new DateTime(01-15-2017));
+            Claims Q1 = new Claims(45, "Car", "Fender Bender", 250.00m, new DateTime(2016, 02, 05), new DateTime(2016, 05, 18));
+            Claims Q2 = new Claims(32, "House", "Domestic Dispute", 5000.00m, new DateTime(2016, 04, 15), new DateTime(2016, 05, 18));
+            Claims Q3 = new Claims(68, "Theft", "Purse-Dog Taken", 600.00m, new DateTime(2016, 09, 08), new DateTime(2016, 09, 09));
+            Claims Q4 = new Claims(122, "RV", "Camping Accident", 12542.97m, new DateTime(2016, 12, 25), new DateTime(2017, 01, 15));
 
 
             _claimsQueueRepo.ViewItemsInQueue(Q1);
@@ -121,7 +137,7 @@ namespace Challenge_2
                     $"Valid (True/False): {item.IsValidClaim} \n");
             }
         }
-
+        
 
 
 

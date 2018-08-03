@@ -45,7 +45,7 @@
     <Compile Include="Claims.cs" />
     <Compile Include="ClaimsQueueRepo.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="ProgramUI.cs" />
+    <Compile Include="ClaimsUI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

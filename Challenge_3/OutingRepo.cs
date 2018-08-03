@@ -6,14 +6,22 @@ using System.Threading.Tasks;
 
 namespace Challenge_3
 {
-    class OutingRepo
+    public class OutingRepo
     {
         private List<Outing> _outingRepo = new List<Outing>();
 
-        public List<Outing> GetList(Outing item)
+        public void AddToList(Outing outing)
         {
-            _outingRepo.Add()
+            _outingRepo.Add(outing);
         }
+
+        public List<Outing> GetList()
+        {
+            return _outingRepo;
+        }
+
+
+
 
 
 

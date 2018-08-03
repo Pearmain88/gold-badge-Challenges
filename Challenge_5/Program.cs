@@ -22,14 +22,14 @@ namespace Challenge_5
             Customer customer = new Customer(firstName, lastName, typeOf);
             Console.WriteLine(customer);
 
-            foreach (string typeOf in Customer)
+            foreach (string customerType in Customer)
             {
-                if (typeOf == "Potential")
+                if (customerType == "Potential")
                     Console.WriteLine("Come Join Us For GREAT Rates On Jet Ski Insurance!");
-                else if (typeOf == "Current")
+                else if (customerType == "Current")
                     Console.WriteLine("Thank You For Being A Customer, Have A Coupon For One Free Starbucks Coffee!");
-                else if  (typeOf == "Past")
-                    Console.WriteLine("Baby Come Back, YOu Can Get $5 Off Your Last Rate!");
+                else if  (customerType == "Past")
+                    Console.WriteLine("Baby Come Back, You Can Get $5 Off Your Last Rate!");
             }
 
 

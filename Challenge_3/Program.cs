@@ -10,6 +10,8 @@ namespace Challenge_3
     {
         static void Main(string[] args)
         {
+            OutingUI program = new OutingUI();
+            program.Run();
         }
     }
 }

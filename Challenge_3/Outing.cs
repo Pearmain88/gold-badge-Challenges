@@ -6,17 +6,22 @@ using System.Threading.Tasks;
 
 namespace Challenge_3
 {
-    class Outing
+    public class Outing
     {
+        public enum OutingType
+        {
+            Bowling = 1, WaterPark, MiniGolf, Concert,
+        }
+
         public Outing() { }
 
-        public Outing(string type, int attended, DateTime date, decimal costPer, decimal costTotal)
+        public Outing(string type, int attended, DateTime date, decimal costPer)
         {
             EventType = type;
             Attended = attended;
             DateOfEvent = date;
             CostPerPerson = costPer;
-            TotalCost = costTotal;
+            TotalCost = CostPerPerson * Attended;
         }
 
         public string EventType { get; set; }
@@ -24,5 +29,6 @@ namespace Challenge_3
         public DateTime DateOfEvent { get; set; }
         public decimal CostPerPerson { get; set; }
         public decimal TotalCost { get; set; }
+        public OutingType Event { get; internal set; }
     }
 }

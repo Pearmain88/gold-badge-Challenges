@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Challenge_2
 {
-    class Claims
+    public class Claims
     {
         public Claims() { }
 
@@ -28,5 +28,15 @@ namespace Challenge_2
         public DateTime DateOfAccident { get; set; }
         public DateTime ClaimDate { get; set; }
         public bool IsValidClaim { get; set; }
+
+        public override string ToString()
+        {
+            return $"{ClaimID}\n" +
+                $"{TypeOfAccident}\n" +
+                $"{Description}\n" +
+                $"{DateOfAccident}\n" +
+                $"{ClaimDate}\n" +
+                $"{IsValidClaim}";
+        }
     }
 }
